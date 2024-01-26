@@ -1,4 +1,77 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
 
-.title{
-    color: #bb0996;
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+image {
+  display: block;
+  width: 100%;
+}
+
+button,
+input[type="button"],
+input[type="submit"] {
+  border: none;
+  background: none;
+  font: inherit;
+  outline: none;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(248, 248, 248);
+  padding: 1rem;
+}
+
+.header > img {
+  width: 6%;
+  border-radius: 10px;
+}
+
+.header > ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.resto-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 4rem 0 4rem;
+}
+
+.restro-card{
+  width: 30%;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 0.3em;
+}
+
+.restro-card > img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+button{
+  width: 10rem;
+  border: 1px solid gray;
+}
+
+.filter-btn{
+  margin-left: 1rem;
+}
+
+.d-flex{
+  display: flex;
 }
