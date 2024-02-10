@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import RestoCard from "../components/RestoCard";
 // import restroData from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import useOnlineStatus from '../utils/useOnlineStatus';
 
 const Body = () => {
   const [restraurant, setRestorant] = useState([]);
@@ -25,6 +27,15 @@ const Body = () => {
     );
   };
 
+  console.log(useOnlineStatus())
+
+  if(useOnlineStatus() === false){
+    return (<div>
+      Seems like you are offline please check you internet connection
+    </div>
+    )
+  }
+
   return restraurant?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -43,7 +54,9 @@ const Body = () => {
             type="button"
             onClick={() => {
               const filteredRestaurant = restraurant.filter((resto) =>
-                resto.info.name.toLowerCase().includes(searchText?.toLowerCase())
+                resto.info.name
+                  .toLowerCase()
+                  .includes(searchText?.toLowerCase())
               );
               setFilteredRestaurant(filteredRestaurant);
             }}
@@ -66,7 +79,9 @@ const Body = () => {
       </div>
       <div className="resto-container">
         {filteredRestaurant.map((rest) => (
-          <RestoCard key={rest.info.id} restro={rest} />
+          <Link className="restro-card" key={rest.info.id} to={ "/restaurant/" + rest.info.id}>
+            <RestoCard restro={rest} />
+          </Link>
         ))}
       </div>
     </div>

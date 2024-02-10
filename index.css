@@ -10,7 +10,7 @@
   font: inherit;
 }
 
-image {
+img {
   display: block;
   width: 100%;
 }
@@ -22,6 +22,18 @@ input[type="submit"] {
   background: none;
   font: inherit;
   outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .header {
@@ -44,15 +56,15 @@ input[type="submit"] {
 }
 
 .resto-container {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0 4rem 0 4rem;
+  justify-content: center;
+  padding: 0 4rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
-.restro-card{
-  width: 30%;
+.restro-card {
+  width: 20%;
   border-radius: 10px;
   border: 1px solid black;
   padding: 0.3em;
@@ -63,15 +75,31 @@ input[type="submit"] {
   border-radius: 10px;
 }
 
-button{
+.restro-card-new {
+  display: grid;
+  /* align-content: center;
+  justify-items: center; */
+}
+
+button {
   width: 10rem;
   border: 1px solid gray;
 }
 
-.filter-btn{
+button:hover {
+  cursor: pointer;
+  background-color: rgb(167, 161, 161);
+}
+
+.filter-btn {
   margin-left: 1rem;
 }
 
-.d-flex{
+.d-flex {
   display: flex;
+}
+
+.user-card {
+  border: 1px solid black;
+  padding: 1rem;
 }
