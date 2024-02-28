@@ -10,28 +10,28 @@ class UserClass extends React.Component {
         username: "xyz",
       },
     };
-    console.log(" constructor");
+    // console.log(" constructor");
   }
 
   async componentDidMount() {
     const data = await fetch("https://jsonplaceholder.typicode.com/users/1");
     const json = await data.json();
-    console.log(json);
 
     this.setState({userInfo: json});
+    // console.log('child mount')
   }
 
   componentDidUpdate(){
-    console.log('update')
+    // console.log('child update')
   }
 
   componentWillUnmount(){
-    console.log('componentWillUnmount');
+    // console.log(' child componentWillUnmount');
   }
 
   render() {
     const { id, name, username } = this.state.userInfo;
-    console.log(" render");
+    // console.log(" render");
     return (
       <div className="user-card">
         <h1>ID: {id}</h1>

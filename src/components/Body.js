@@ -4,11 +4,15 @@ import RestoCard from "../components/RestoCard";
 // import restroData from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from '../utils/useOnlineStatus';
+import Filter from './Filter';
+import FoodCarousal from "./FoodCarousal";
 
 const Body = () => {
   const [restraurant, setRestorant] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState();
   const [searchText, setSearchText] = useState([]);
+  const [firstOrderInspirationFood, setFirstOrderInspirationFood] = useState([]);
+  const [topBrands, setTopBrands] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -20,18 +24,24 @@ const Body = () => {
     );
     const json = await data.json();
     setRestorant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFirstOrderInspirationFood(
+      json?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info
+    )
+    setTopBrands(
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    )
   };
 
-  console.log(useOnlineStatus())
+  // console.log(useOnlineStatus())
 
   if(useOnlineStatus() === false){
     return (<div>
-      Seems like you are offline please check you internet connection
+      No internet connectivity. Please check your network
     </div>
     )
   }
@@ -39,8 +49,8 @@ const Body = () => {
   return restraurant?.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="container">
-      <div className="d-flex">
+    <div className="border-gray-100 border-t-[1px] w-full max-w-[68rem] mx-auto my-0 ">
+      {/* <div className="d-flex">
         <div className="search">
           <input
             type="text"
@@ -76,10 +86,16 @@ const Body = () => {
         >
           Top rated restaurants
         </button>
-      </div>
-      <div className="resto-container">
-        {filteredRestaurant.map((rest) => (
-          <Link className="restro-card" key={rest.info.id} to={ "/restaurant/" + rest.info.id}>
+      </div> */}
+      <Filter/>
+      <h1 className="text-2xl font-bold ">Inspiration for your first order</h1>
+      <FoodCarousal foodData={firstOrderInspirationFood}/>
+      <h1  className="text-2xl font-bold py-5">Top brands for you</h1>
+      <FoodCarousal foodData={topBrands}/>
+      <h1 className="text-2xl font-bold py-4">Delivery Restaurants in Pune</h1>
+      <div className="flex flex-wrap justify-between mb-6">
+        {filteredRestaurant?.map((rest) => (
+          <Link className="w-[22rem]" key={rest.info.id} to={ "/restaurant/" + rest.info.id}>
             <RestoCard restro={rest} />
           </Link>
         ))}

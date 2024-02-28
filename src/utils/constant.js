@@ -1,4 +1,4 @@
-const LOGO_URL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXm-tLmzHFJuw4Y0yaJwoXk6E7fiF2CrQOCGJ0QvjhFyRi7op2Najx3WWNeObjAbtiMKo&usqp=CAU";
+const LOGO_URL = "https://b.zmtcdn.com/web_assets/b40b97e677bc7b2ca77c58c61db266fe1603954218.png";
 
 export const SingleRestaurantUrl = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5640465&lng=73.7692592&restaurantId=";
 
