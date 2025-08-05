@@ -7,6 +7,7 @@ export const Header = () => {
   const [btnName, setBtnName] = useState("login");
   const onLineStatus = useOnlineStatus();
   const location = useLocation();
+  let btnNameReact = "login" 
 
   const isActiveRoute = (route) => {
     console.log(route);
@@ -71,7 +72,16 @@ export const Header = () => {
               />
             </div>
           </li>
-          <li>Log in</li>
+          <li>
+            <button
+              className="login"
+              onClick={() => {
+                btnNameReact === "login"
+                  ? setBtnName("logout")
+                  : setBtnName("login");
+              }}
+            />
+          </li>
           <li>Sign up</li>
         </ul>
       </nav>

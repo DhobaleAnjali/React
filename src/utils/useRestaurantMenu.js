@@ -15,14 +15,14 @@ const useRestaurantMenu = (resId) => {
     const restaurantMenuData = {
       restaurantDetails: json?.data?.cards[0]?.card?.card?.info,
       menuImages:
-        json?.data?.cards[2]?.groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
+        json?.data?.cards[4]?.groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards.map(
           (data) => data?.card?.info?.imageId
         ),
       restaurantMenuCards:
-        json?.data?.cards[2]?.groupedCard.cardGroupMap.REGULAR.cards[1].card
+        json?.data?.cards[4]?.groupedCard.cardGroupMap.REGULAR.cards[3].card
           .card.itemCards,
     };
-    // console.log(restaurantMenuData)
+    console.log("hi" + data)
     setRestorantMenu(restaurantMenuData);
     // setRestorantMenu(json?.data?.cards[0]?.card?.card?.info);
     // console.log(

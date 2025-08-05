@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import RestoCard from "../components/RestoCard";
+import RestaurantCard from "../components/RestaurantCard";
 // import restroData from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from '../utils/useOnlineStatus';
@@ -96,7 +96,8 @@ const Body = () => {
       <div className="flex flex-wrap justify-between mb-6">
         {filteredRestaurant?.map((rest) => (
           <Link className="w-[22rem]" key={rest.info.id} to={ "/restaurant/" + rest.info.id}>
-            <RestoCard restro={rest} />
+            {/* If restro is promoted then add promtoed lable to it */}
+            <RestaurantCard restro={rest} />
           </Link>
         ))}
       </div>
